@@ -2,7 +2,6 @@
 #include"bin_tree.h"
 #include"seqqueue.h"
 #include<stdlib.h>
-
 TreeNode* CreateTreeNode(TreeNodeType value)
 {
     TreeNode* new_node = (TreeNode*)malloc(sizeof(TreeNode));
@@ -133,7 +132,7 @@ TreeNode* TreeClone(TreeNode* root)
     new_node->rchild = TreeClone(root->rchild);
     return new_node;
 }
-////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 //以下为测试代码
 //////////////////////////////////////////////////////////////////////
 #if 1
