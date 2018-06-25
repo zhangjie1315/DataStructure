@@ -1,4 +1,5 @@
 #include"seqqueue.h"
+
 void SeqQueueInit(SeqQueue* q)
 {
     if(q == NULL)
