@@ -4,7 +4,6 @@
 	> Mail: ma6174@163.com 
 	> Created Time: 2018年03月13日 星期二 05时45分36秒
  ************************************************************************/
-
 #include"sequence.h"
 
 void SeqListInit(SeqList *seqlist)
