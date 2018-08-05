@@ -2,23 +2,23 @@
 #include"LinkList.h"
 #include<stdlib.h>
 #include<stdio.h>
-LinkNode* CreatNode(LinkNodeType value)
+LinkNode* CreatNode(LinkNodeType value)//创建一个节点,用value赋值
 {
-	LinkNode* new_node = (LinkNode*)malloc(sizeof(LinkNode));
+	LinkNode* new_node = (LinkNode*)malloc(sizeof(LinkNode));//用malloc申请空间
 	new_node->data = value;
 	new_node->next=NULL;
 	return new_node;
 }
 
-void DestroyNode(LinkNode* node)
+void DestroyNode(LinkNode* node)//销毁节点
 {
 	free(node);
 }
-void LinkNodeInit(LinkNode** node)
+void LinkNodeInit(LinkNode** node)//初始化节点
 {
 	*node= NULL;
 }
-void LinkListDestroy(LinkNode** phead)
+void LinkListDestroy(LinkNode** phead)//销毁链表
 {
 	if(phead == NULL)
 	{
@@ -29,19 +29,19 @@ void LinkListDestroy(LinkNode** phead)
 		return;
 	}
 	LinkNode* cur = *phead;
-	while(cur != NULL)
+	while(cur != NULL)//采用循环销毁除了头结点以外的全部节点
 	{
 		LinkNode* to_delete = cur;
 		cur = cur->next;
-		DestroyNode(to_delete);
+		DestroyNode(to_delete);//调用DestroyNode进行销毁节点
 	}
-	*phead = NULL;
+	*phead = NULL;//头节点为NULL
 	
 }
 
 
 
-void LinkListPushBack(LinkNode** phead,LinkNodeType value)
+void LinkListPushBack(LinkNode** phead,LinkNodeType value)//尾插
 {
 	if(phead == NULL)
 	{
@@ -56,16 +56,16 @@ void LinkListPushBack(LinkNode** phead,LinkNodeType value)
 	}
 	//链表非空
 	LinkNode* cur=*phead;
-	while(cur->next != NULL)
+	while(cur->next != NULL)//指针cur通过循环指向链表最后一个结点
 	{
 		cur=cur->next;
 	}
-	LinkNode* new_node = CreatNode(value);
+	LinkNode* new_node = CreatNode(value);//创建一个新的节点
 	cur->next = new_node;
 	return;
 }
 
-void LinkListPopBack(LinkNode** phead)
+void LinkListPopBack(LinkNode** phead)//尾删
 {
 	if(phead == NULL)
 	{
@@ -80,7 +80,7 @@ void LinkListPopBack(LinkNode** phead)
 	if((*phead)->next == NULL)
 	{
 		//只有一个元素 
-	    DestroyNode(*phead);
+	    DestroyNode(*phead);//销毁节点
 		*phead = NULL;
 		return;
 	}
@@ -98,19 +98,19 @@ void LinkListPopBack(LinkNode** phead)
 	return;
 }
 
-void LinkListPushFront(LinkNode** phead,LinkNodeType value)
+void LinkListPushFront(LinkNode** phead,LinkNodeType value)//头插
 {
 	if(phead == NULL)
 	{
 		//非法输入
 		return;
 	}
-	LinkNode* new_node = CreatNode(value);
+	LinkNode* new_node = CreatNode(value);//创建一个新节点，新节点指向头指针，头指针前移
 	new_node->next = *phead;
 	*phead = new_node;
 	return;
 }
-void LinkListPopFront(LinkNode** phead)
+void LinkListPopFront(LinkNode** phead)//头删除
 {
 	if(phead == NULL)
 	{
@@ -122,7 +122,7 @@ void LinkListPopFront(LinkNode** phead)
 		//空链表，无法删除
 		return;
 	}
-	LinkNode* to_erase = *phead;
+	LinkNode* to_erase = *phead;//定义to_arase指针，将头指针后移，删除头结点
 	*phead = (*phead)->next;
 	DestroyNode(to_erase);
 	to_erase == NULL;
@@ -130,7 +130,7 @@ void LinkListPopFront(LinkNode** phead)
 }
 
 
-LinkNode* LinkListFind(LinkNode* head,LinkNodeType to_find)
+LinkNode* LinkListFind(LinkNode* head,LinkNodeType to_find)//查找某个元素
 {
 	if(head == NULL)
 	{
@@ -150,7 +150,7 @@ LinkNode* LinkListFind(LinkNode* head,LinkNodeType to_find)
 }
 
 
-void LinkListInsert(LinkNode* pos,LinkNodeType value)
+void LinkListInsert(LinkNode* pos,LinkNodeType value)//在pos后插入节点
 {
 	if(pos == NULL)
 	{
@@ -163,7 +163,7 @@ void LinkListInsert(LinkNode* pos,LinkNodeType value)
 }
 
 
-void LinkListInsertBefore(LinkNode** phead,LinkNode* pos,LinkNodeType value)
+void LinkListInsertBefore(LinkNode** phead,LinkNode* pos,LinkNodeType value)//在pos之前插入节点
 {
 	if(phead == NULL || pos == NULL)
 	{
@@ -200,7 +200,8 @@ void LinkListInsertBefore2(LinkNode* pos,LinkNodeType value)
 	pos->data = value;
 	return;
 }
-void LinkListErase(LinkNode** phead,LinkNode* pos)
+///////////////////////删除指定位置元素
+void LinkListErase(LinkNode** phead,LinkNode* pos)//删除pos位置的元素   遍历链表进行
 {
 	if(phead == NULL || pos == NULL)
 	{
@@ -212,10 +213,10 @@ void LinkListErase(LinkNode** phead,LinkNode* pos)
 	}
 	if(*phead == pos)
 	{
-		LinkListPopFront(phead);
+		LinkListPopFront(phead);//头节点是pos，则进行头删
 	}
 	LinkNode* cur = *phead;
-	for(;cur != NULL; cur = cur->next)
+	for(;cur != NULL; cur = cur->next)//通过循环cur->next=pos，销毁pos节点
 	{
 		if(cur ->next == pos)
 		{
@@ -225,7 +226,8 @@ void LinkListErase(LinkNode** phead,LinkNode* pos)
 	}
 	return;
 }
-void LinkListErase2(LinkNode** phead,LinkNode* pos)
+////////////////方法2
+void LinkListErase2(LinkNode** phead,LinkNode* pos)//先把pos后的元素赋给pos，然后删除pos后的元素
 {
 	if(phead == NULL || pos == NULL)
 	{
@@ -237,17 +239,17 @@ void LinkListErase2(LinkNode** phead,LinkNode* pos)
 	}
 	if(pos->next == NULL)
 	{
-		//如果要删除的元素恰好是最后一个元素那就用为删
+		//如果要删除的元素恰好是最后一个元素那就用尾删
 		LinkListPopBack(phead);
 	}
-	pos->data = pos->next->data;
+	pos->data = pos->next->data;//把pos后的值给pos所指向的元素，然后删除pos指向的下一个元素
 	LinkNode* to_erase = pos->next;
 	pos->next = to_erase->next;
-	DestroyNode(to_erase);
+	DestroyNode(to_erase);//销毁节点to_erase
 	return;
 }
 
-
+//////////////////删除指定值元素
 void LinkListRemove(LinkNode** phead,LinkNodeType to_delete)
 {
 	if(phead == NULL)
@@ -258,7 +260,7 @@ void LinkListRemove(LinkNode** phead,LinkNodeType to_delete)
 	{
 		return;
 	}
-	LinkNode* pos = *phead;
+	LinkNode* pos = *phead;//定义一个指针pos
 	while(pos->next != NULL)
 	{
 		if((pos == *phead) && (pos->data == to_delete))
@@ -269,13 +271,13 @@ void LinkListRemove(LinkNode** phead,LinkNodeType to_delete)
 		pos = pos->next;
 		if(pos->data == to_delete)
 		{
-			LinkListErase(phead,pos);
+			LinkListErase(phead,pos);//删除指定位置的元素
 			return;
 		}
 	}
 
 }
-
+///////指定值的所有元素都删除
 void LinkListRemoveAll(LinkNode** phead,LinkNodeType value)
 {
 	if(phead == NULL)
@@ -300,6 +302,7 @@ void LinkListRemoveAll(LinkNode** phead,LinkNodeType value)
 
 }
 
+/////////////////判断链表为空   空返回1  非空返回0
 int LinkListEmpty(LinkNode* phead)
 {
 	if(phead == NULL)
@@ -308,7 +311,7 @@ int LinkListEmpty(LinkNode* phead)
 	}
 	return 0;
 }
-
+////////////////////求链表的长度
 int LinkListSize(LinkNode* phead)
 {
 	int count = 0;
@@ -321,6 +324,8 @@ int LinkListSize(LinkNode* phead)
 	count++;
 	return count;
 }
+
+////////////////逆序打印单链表   采用递归方法
 void LinkListReversePrint(LinkNode* phead)
 {
 	if(phead == NULL)
@@ -332,6 +337,8 @@ void LinkListReversePrint(LinkNode* phead)
 	printf("%c ",pos->data);
 	return;
 }
+
+///////////////////////////
 LinkNode* JosephCircle(LinkNode* phead,int M)
 {
 	if(phead == NULL)
