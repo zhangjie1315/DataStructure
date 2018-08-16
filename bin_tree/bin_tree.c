@@ -1,6 +1,4 @@
-
 #include <stdio.h>
-
 #include"bin_tree.h"
 #include"seqqueue.h"
 #include<stdlib.h>
