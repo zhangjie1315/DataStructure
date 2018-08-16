@@ -39,9 +39,6 @@ int partion(int arr[],int beg,int end)
     return left;
 }
 
-
-
-
 //选择排序  打擂台思想，一个擂主，多个挑战者挑战，不符合要求的进行交换
 //[0,bound)表示有序元素
 //[bound,size)表示待排区间
