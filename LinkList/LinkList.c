@@ -9,7 +9,6 @@ LinkNode* CreatNode(LinkNodeType value)//创建一个节点,用value赋值
 	new_node->next=NULL;
 	return new_node;
 }
-
 void DestroyNode(LinkNode* node)//销毁节点
 {
 	free(node);
@@ -21,6 +20,7 @@ void LinkNodeInit(LinkNode** node)//初始化节点
 void LinkListDestroy(LinkNode** phead)//销毁链表
 {
 	if(phead == NULL)
+
 	{
 		return;
 	}
