@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<stddef.h>
+
 DLinkNode* CreateDLinkNode(DLinkType value)
 {
     DLinkNode* new_node = (DLinkNode*)malloc(sizeof(DLinkNode));
@@ -497,3 +498,4 @@ int main()
     return 0;
 }
 #endif
+
