@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<stddef.h>
-
 DLinkNode* CreateDLinkNode(DLinkType value)
 {
     DLinkNode* new_node = (DLinkNode*)malloc(sizeof(DLinkNode));
@@ -29,6 +28,7 @@ void DLinkListPushBack(DLinkNode* head,DLinkType value)
     if(head == NULL)
     {
         //非法输入
+        //
         return;
     }
     DLinkNode* tail = head->prev;
