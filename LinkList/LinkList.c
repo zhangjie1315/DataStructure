@@ -4,6 +4,7 @@
 #include<stdio.h>
 LinkNode* CreatNode(LinkNodeType value)//创建一个节点,用value赋值
 {
+
 	LinkNode* new_node = (LinkNode*)malloc(sizeof(LinkNode));//用malloc申请空间
 	new_node->data = value;
 	new_node->next=NULL;
@@ -33,6 +34,7 @@ void LinkListDestroy(LinkNode** phead)//销毁链表
 	{
 		LinkNode* to_delete = cur;
 		cur = cur->next;
+
 		DestroyNode(to_delete);//调用DestroyNode进行销毁节点
 	}
 	*phead = NULL;//头节点为NULL
