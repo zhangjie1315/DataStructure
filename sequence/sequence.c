@@ -1,11 +1,4 @@
-/*************************************************************************
-	> File Name: sequence.c
-	> Author: ma6174
-	> Mail: ma6174@163.com 
-	> Created Time: 2018年03月13日 星期二 05时45分36秒
- ************************************************************************/
 #include"sequence.h"
-
 void SeqListInit(SeqList *seqlist)
 {
 	if(seqlist==NULL)
@@ -14,8 +7,6 @@ void SeqListInit(SeqList *seqlist)
 	}
 	seqlist->size=0;
 }
-
-
 void SeqListPushFront(SeqList *seqlist,SeqListType value)
 {
 	if(seqlist==NULL)
