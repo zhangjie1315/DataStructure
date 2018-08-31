@@ -13,6 +13,7 @@ void SeqQueueInit(SeqQueue* q)
 }
 void SeqQueueDestroy(SeqQueue* q)
 {
+
     if(q == NULL)
     {
         //非法输入
@@ -38,6 +39,7 @@ void SeqQueuePush(SeqQueue* q,SeqQueueType value)
     q->data[q->tail++] = value;
     if(q->tail > SeqQueueMaxSize)
     {
+
         q->tail = 0;
     }
     ++q->size;
