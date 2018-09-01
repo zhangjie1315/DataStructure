@@ -1,10 +1,11 @@
 #if 1
+
 #include"LinkList.h"
+
 #include<stdlib.h>
 #include<stdio.h>
 LinkNode* CreatNode(LinkNodeType value)//创建一个节点,用value赋值
 {
-
 	LinkNode* new_node = (LinkNode*)malloc(sizeof(LinkNode));//用malloc申请空间
 	new_node->data = value;
 	new_node->next=NULL;
