@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include"bin_tree.h"
 #include"seqqueue.h"
-
-#include<stdlib.h>
-TreeNode* CreateTreeNode(TreeNodeType value)
 {
+
     TreeNode* new_node = (TreeNode*)malloc(sizeof(TreeNode));
     new_node->data = value;
     new_node->lchild = NULL;
