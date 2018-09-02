@@ -1,9 +1,11 @@
 #include"sequence.h"
 void SeqListInit(SeqList *seqlist)
+
 {
 	if(seqlist==NULL)
 	{
 		return;
+
 	}
 	seqlist->size=0;
 }
