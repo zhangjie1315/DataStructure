@@ -3,6 +3,7 @@
 #include"seqqueue.h"
 {
     TreeNode* new_node = (TreeNode*)malloc(sizeof(TreeNode));
+
     new_node->data = value;
     new_node->lchild = NULL;
     new_node->rchild = NULL;
@@ -10,6 +11,7 @@
 }
 void TreeInit(TreeNode** pRoot)
     
+
 {
     if(pRoot == NULL)
     {
