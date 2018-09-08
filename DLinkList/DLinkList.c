@@ -22,7 +22,9 @@ void DLinkListInit(DLinkNode** head)
      return;
     }
     *head = CreateDLinkNode(0);
+
 }
+
 void DLinkListPushBack(DLinkNode* head,DLinkType value)
 {
     if(head == NULL)
