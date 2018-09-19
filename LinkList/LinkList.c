@@ -1,7 +1,5 @@
 #if 1
-
 #include"LinkList.h"
-
 #include<stdlib.h>
 #include<stdio.h>
 LinkNode* CreatNode(LinkNodeType value)//创建一个节点,用value赋值
@@ -13,6 +11,7 @@ LinkNode* CreatNode(LinkNodeType value)//创建一个节点,用value赋值
 }
 void DestroyNode(LinkNode* node)//销毁节点
 {
+
 	free(node);
 }
 void LinkNodeInit(LinkNode** node)//初始化节点
