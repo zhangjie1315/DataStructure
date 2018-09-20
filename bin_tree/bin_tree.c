@@ -4,7 +4,6 @@
 #include"seqqueue.h"
 {
     TreeNode* new_node = (TreeNode*)malloc(sizeof(TreeNode));
-
     new_node->data = value;
     new_node->lchild = NULL;
     new_node->rchild = NULL;
@@ -255,6 +254,7 @@ void TestClone()
     printf("\n层序遍历：");
     TreeLevelOrder(new_root);
     printf("\n");
+
     return;
 }
 int main()
@@ -269,3 +269,4 @@ int main()
     return 0;
 }
 #endif
+o
