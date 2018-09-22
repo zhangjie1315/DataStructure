@@ -1,6 +1,7 @@
 #include"seqqueue.h"
 void SeqQueueInit(SeqQueue* q)
 {
+
     if(q == NULL)
     {
         //非法输入
@@ -21,6 +22,7 @@ void SeqQueueDestroy(SeqQueue* q)
     }
     q->size = 0;
     q->head = 0;
+
     q->tail = 0;
     return;
 }

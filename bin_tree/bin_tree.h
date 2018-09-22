@@ -9,11 +9,9 @@ typedef struct TreeNode
     struct TreeNode* lchild;
     struct TreeNode* rchild;
 }TreeNode;
-
 //对于链表来说，使用链表的头节点的指针表示一个链表
 //对于一个树来书，使用根节点的指针来表示一个树
 void TreeInit(TreeNode** pRoot);
-
 void TreePreOrder(TreeNode* root);
 void TreeInOrder(TreeNode* root);
 void TreePostOrder(TreeNode* root);
