@@ -7,11 +7,13 @@ DLinkNode* CreateDLinkNode(DLinkType value)
     DLinkNode* new_node = (DLinkNode*)malloc(sizeof(DLinkNode));
     new_node->data = value;
     new_node->prev = new_node;
+
     new_node->next = new_node;
     return new_node;
 }
 void DestroyDLinkNode(DLinkNode* pos)
 {
+
     free(pos);
 }
 void DLinkListInit(DLinkNode** head)

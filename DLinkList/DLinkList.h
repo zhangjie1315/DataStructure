@@ -1,16 +1,13 @@
 #pragma once
 #include<stddef.h>
 typedef char DLinkType;
-
 typedef struct DLinkNode
 {
   DLinkType data;
   struct DLinkNode* prev;
   struct DLinkNode* next;
 }DLinkNode;
-
 void DLinkListInit(DLinkNode** phead) ;
-
 void DLinkListPushBack(DLinkNode* head,DLinkType value);
 void DLinkListPopBack(DLinkNode* head);
 void DLinkListPushFront(DLinkNode* head,DLinkType value);
